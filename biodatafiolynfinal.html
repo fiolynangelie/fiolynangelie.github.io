@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Biodata Fiolyn</title>
+
+<link href="https://fonts.googleapis.com/css2?family=great vibes&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: "great vibes", cursive;
+    font-weight: 700;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  .card {
+    width: 900px;
+    padding: 40px;
+    border-radius: 30px;
+    background: rgba(88, 175, 80, 0.75);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(7, 7, 7, 0.25);
+    text-align: center;
+    transition: 0.4s;
+    display: none;
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1; transform: translateY(0);}
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+    object-fit: cover;
+    border: 5px solid yellowgreen
+  }
+
+  h1 {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .info {
+    margin-top: 15px;
+    text-align: left;
+    display: none;
+  }
+
+  .info p {
+    margin: 6px 0;
+  }
+
+  button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 6px solid #86c41e;
+    background: linear-gradient(45deg, #cef26d, #cef26d);
+    color: #5fa14c;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+  }
+
+  button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .back-btn {
+    margin-top: 15px;
+    background: #cef26d;
+  }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="live background.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="home" id="home">
+  <button onclick="showBio()">🌷 About Me</button>
+  <button onclick="showHello()">💌 Hello There</button>
+</div>
+
+<div class="card" id="card">
+  <img src="profile.jpeg" alt="profile">
+
+  <h1>Fiolyn Angelie 🌸</h1>
+
+  <div class="info" id="bio">
+    <p><b>🎀 Nickname:</b> Fiolyn or Lyn :></p>
+    <p><b>⭐ Student ID:</b> 2531122</p>
+    <p><b> Major:</b> Computer Science 💻</p>
+    <p><b>🎧 Hobbies:</b> Designing, Drawing, Painting, Playing Games, Styling Clothes ✨</p>
+    <p><b>💚 Fun Fact:</b> I have a twin :D ✌️</p>
+  </div>
+
+  <div class="info" id="hello">
+    <p>🌸 Haiii!</p>
+    <p>Makasih ya udah mampir ke biodata aku 💕</p>
+    <p>Semoga harimu manis kayak strawberry milk 🍓✨</p>
+    <p>Nice to meet youuu!</p>
+  </div>
+
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+  function showBio() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("card").style.display = "block";
+    document.getElementById("bio").style.display = "block";
+    document.getElementById("hello").style.display = "none";
+  }
+
+  function showHello() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("card").style.display = "block";
+    document.getElementById("bio").style.display = "none";
+    document.getElementById("hello").style.display = "block";
+  }
+
+  function goBack() {
+    document.getElementById("home").style.display = "flex";
+    document.getElementById("card").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
