@@ -4,13 +4,35 @@
 <meta charset="UTF-8" />
 <title>Biodata Fiolyn</title>
 
-<link href="https://fonts.googleapis.com/css2?family=great vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=great+vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
   * {
     box-sizing: border-box;
     font-family: "great vibes", cursive;
     font-weight: 700;
+  }
+
+    header, footer, nav, section, article {
+      display : none;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .main-title {
+  font-size: 80px;
+  color:rgb(201, 235, 7);
+  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  margin: 0;
+  animation: fadeIn 1.5s ease;
+  font-family: "Pacifico", cursive;
+  font-weight: 500;
   }
 
   body {
@@ -33,7 +55,7 @@
   }
 
   .card {
-    width: 900px;
+    width: 650px;
     padding: 40px;
     border-radius: 30px;
     background: rgba(88, 175, 80, 0.75);
@@ -55,7 +77,7 @@
     height: 300px;
     border-radius: 25px;
     object-fit: cover;
-    border: 5px solid yellowgreen
+    border: 5px solid rgb(201, 235, 7);
   }
 
   h1 {
@@ -67,10 +89,12 @@
     margin-top: 15px;
     text-align: left;
     display: none;
+    font-size: 18px;
   }
 
   .info p {
     margin: 6px 0;
+    font-size: 18px;
   }
 
   button {
@@ -105,28 +129,29 @@
 <div class="overlay"></div>
 
 <div class="home" id="home">
-  <button onclick="showBio()">🌷 About Me</button>
-  <button onclick="showHello()">💌 Hello There</button>
+  <h2 class="main-title">✨Lets Get To Know Each Other✨</h2>
+  <button onclick="showBio()">🌷 About Me 🌷</button>
+  <button onclick="showHello()">💌 Hello There 💌</button>
 </div>
 
 <div class="card" id="card">
   <img src="profile.jpeg" alt="profile">
 
-  <h1>Fiolyn Angelie 🌸</h1>
+  <h1>🌻Fiolyn Angelie🌻</h1>
 
   <div class="info" id="bio">
-    <p><b>🎀 Nickname:</b> Fiolyn or Lyn :></p>
-    <p><b>⭐ Student ID:</b> 2531122</p>
-    <p><b> Major:</b> Computer Science 💻</p>
-    <p><b>🎧 Hobbies:</b> Designing, Drawing, Painting, Playing Games, Styling Clothes ✨</p>
-    <p><b>💚 Fun Fact:</b> I have a twin :D ✌️</p>
+    <p><b>🎀💫Nickname:</b> Fiolyn or Lyn🎻📚</p>
+    <p><b>🧏🏻‍♀️😉Student ID:</b> 2531122✨🎫</p>
+    <p><b>💭💙Major:</b> Computer Science💻📁</p>
+    <p><b>🎮🎨Hobbies:</b> Designing, Drawing, Painting, Playing Games, Styling Clothes🩰👗</p>
+    <p><b>🌼☁️Fun Fact:</b> I have a twin✌🏻⭐️</p>
   </div>
 
   <div class="info" id="hello">
-    <p>🌸 Haiii!</p>
-    <p>Makasih ya udah mampir ke biodata aku 💕</p>
-    <p>Semoga harimu manis kayak strawberry milk 🍓✨</p>
-    <p>Nice to meet youuu!</p>
+    <p>Hellooo, 你好, こんにちは, 안녕하세요!!!</p>
+    <p>Terima kasih my friends yang sudah mampir ke biodata saya💕</p>
+    <p>Have a nice, good, and happy day all!!!🍓✨</p>
+    <p>Nice to meet youuu!!</p>
   </div>
 
   <button class="back-btn" onclick="goBack()">⬅ Back</button>
