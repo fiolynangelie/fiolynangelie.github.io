@@ -2,122 +2,227 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<title>Biodata Fiolyn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiolyn Angelie</title>
 
-<link href="https://fonts.googleapis.com/css2?family=great+vibes&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    box-sizing: border-box;
-    font-family: "great vibes", cursive;
-    font-weight: 700;
-  }
-
-    header, footer, nav, section, article {
-      display : none;
-  }
-
-  .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-  }
-
-  .main-title {
-  font-size: 80px;
-  color:rgb(201, 235, 7);
-  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+* {
   margin: 0;
-  animation: fadeIn 1.5s ease;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:cursive;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* Background Video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  backdrop-filter: blur(8px);
+  background: rgba(88, 175, 80, 0.6);
+}
+
+nav a {
+  text-decoration: none;
+  color: #cef26d;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
+/* Section */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* Hero */
+.hero h1 {
   font-family: "Pacifico", cursive;
-  font-weight: 500;
-  }
+  font-size: 70px;
+  color: #cef26d;
+}
 
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+.hero p {
+  font-size: 25px;
+  margin-top: 20px;
+}
 
-  .bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-  }
+/* Card Style */
+.card {
+  background: rgba(88, 175, 80, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 650px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
-  .card {
-    width: 650px;
-    padding: 40px;
-    border-radius: 30px;
-    background: rgba(88, 175, 80, 0.75);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(7, 7, 7, 0.25);
-    text-align: center;
-    transition: 0.4s;
-    display: none;
-    animation: fadeIn 1s ease;
-  }
+img {
+  width: 250px;
+  border-radius: 25px;
+  border: 5px solid #cef26d;
+  margin-bottom: 20px;
+}
 
-  @keyframes fadeIn {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
-  }
+.card h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
 
-  img {
-    width: 300px;
-    height: 300px;
-    border-radius: 25px;
-    object-fit: cover;
-    border: 5px solid rgb(201, 235, 7);
-  }
+.card p {
+  font-size: 22px;
+  margin: 10px 0;
+}
 
-  h1 {
-    color: #fff;
-    margin-bottom: 10px;
-  }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(88, 175, 80, 0.7);
+  font-size: 20px;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+}
 
-  .info {
-    margin-top: 15px;
-    text-align: left;
-    display: none;
-    font-size: 18px;
-  }
+.hero-text {
+  flex: 1;
+  color: white
+}
 
-  .info p {
-    margin: 6px 0;
-    font-size: 18px;
-  }
+.hero-text h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 60px;
+  color: #e04949;
+}
 
-  button {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 6px solid #86c41e;
-    background: linear-gradient(45deg, #cef26d, #cef26d);
-    color: #5fa14c;
-    font-size: 25px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 15px;
-  }
+.hero-text p {
+  font-size: 25px;
+  margin-top: 20px;
+}
 
-  button:hover {
-    transform: scale(1.07);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
+.hero-image {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .back-btn {
-    margin-top: 15px;
-    background: #cef26d;
-  }
+.hero-image img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  border: none;
+  transform: scaleX(-1);
+
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+#about {
+  background: linear-gradient(to bottom, #58af50, #6fcf97);;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+#schedule {
+  background: linear-gradient(to bottom, #6fcf97, #58af50);
+}
+
+.cute-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+  color: #2e7d32;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cute-table th {
+  background: #58af50;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.cute-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cute-table tr:hover {
+  background: #e8f5e9;
+  transition: 0.3s;
+}
+
+section {
+  position: relative;
+}
+@keyframes float {
+  0% { transform: scaleX(-1) translateY(0px); }
+  50% { transform: scaleX(-1) translateY(-15px); }
+  100% { transform: scaleX(-1) translateY(0px); }
+}
 </style>
 </head>
 
@@ -128,55 +233,121 @@
 </video>
 <div class="overlay"></div>
 
-<div class="home" id="home">
-  <h2 class="main-title">✨Lets Get To Know Each Other✨</h2>
-  <button onclick="showBio()">🌷 About Me 🌷</button>
-  <button onclick="showHello()">💌 Hello There 💌</button>
-</div>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#hello">Hello</a>
+  <a href="#schedule">Schedule</a>
+</nav>
 
-<div class="card" id="card">
-  <img src="profile.jpeg" alt="profile">
+<section id="home" class="hero">
+    <div class="hero-text">
+      <h1>✨ Lets Get To Know Each Other ✨</h1>
+      <p>Welcome to my personal website 💚</p>
+    </div>
 
-  <h1>🌻Fiolyn Angelie🌻</h1>
-
-  <div class="info" id="bio">
-    <p><b>🎀💫Nickname:</b> Fiolyn or Lyn🎻📚</p>
-    <p><b>🧏🏻‍♀️😉Student ID:</b> 2531122✨🎫</p>
-    <p><b>💭💙Major:</b> Computer Science💻📁</p>
-    <p><b>🎮🎨Hobbies:</b> Designing, Drawing, Painting, Playing Games, Styling Clothes🩰👗</p>
-    <p><b>🌼☁️Fun Fact:</b> I have a twin✌🏻⭐️</p>
+    <div class="hero-image">
+    <img src="foto.png" alt="Fiolyn">
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path fill="#58af50"
+      d="M0,224L60,202.7C120,181,240,139,360,122.7C480,107,600,117,720,138.7C840,160,960,192,1080,202.7C1200,213,1320,203,1380,197.3L1440,192L1440,320L0,320Z">
+    </path>
+  </svg>
+</div>
+</section>
 
-  <div class="info" id="hello">
+<section id="schedule">
+  <div class="card">
+    <h2>🌿 My Weekly Schedule 🌿</h2>
+
+    <table class="cute-table">
+      <tr>
+        <th>Day</th>
+        <th>Morning</th>
+        <th>Afternoon</th>
+        <th>Evening</th>
+      </tr>
+
+      <tr>
+        <td>Monday</td>
+        <td>Class 📚</td>
+        <td>Study 💻</td>
+        <td>Design Practice 🎨</td>
+      </tr>
+
+      <tr>
+        <td>Tuesday</td>
+        <td>Class 📚</td>
+        <td>Assignment ✏️</td>
+        <td>Gaming 🎮</td>
+      </tr>
+
+      <tr>
+        <td>Wednesday</td>
+        <td>Class 📚</td>
+        <td>Project Work 💻</td>
+        <td>Drawing 🖌️</td>
+      </tr>
+
+      <tr>
+        <td>Thursday</td>
+        <td>Class 📚</td>
+        <td>Study 💻</td>
+        <td>Free Time 🌸</td>
+      </tr>
+
+      <tr>
+        <td>Friday</td>
+        <td>Class 📚</td>
+        <td>Group Discussion 👩🏻‍💻</td>
+        <td>Relax 🌙</td>
+      </tr>
+
+      <tr>
+        <td>Saturday</td>
+        <td>Personal Project ✨</td>
+        <td>Design 🎨</td>
+        <td>Gaming 🎮</td>
+      </tr>
+
+      <tr>
+        <td>Sunday</td>
+        <td>Family Time 💚</td>
+        <td>Rest 😴</td>
+        <td>Planning Week 📅</td>
+      </tr>
+
+    </table>
+  </div>
+</section>
+
+<section id="about">
+  <div class="card">
+    <img src="profile.jpeg" alt="profile">
+    <h2>🌻Fiolyn Angelie🌻</h2>
+    <p>🎀 Nickname: Fiolyn or Lyn</p>
+    <p>🧏🏻‍♀️ Student ID: 2531122</p>
+    <p>💭 Major: Computer Science</p>
+    <p>🎮 Hobbies: Designing, Drawing, Painting, Playing Games</p>
+    <p>🌼 Fun Fact: I have a twin ✌🏻</p>
+  </div>
+</section>
+
+<section id="hello">
+  <div class="card">
+    <h2>💌 Hello There 💌</h2>
     <p>Hellooo, 你好, こんにちは, 안녕하세요!!!</p>
-    <p>Terima kasih my friends yang sudah mampir ke biodata saya💕</p>
-    <p>Have a nice, good, and happy day all!!!🍓✨</p>
+    <p>Terima kasih sudah mampir ke website saya 💕</p>
+    <p>Have a nice and happy day all!!! 🍓✨</p>
     <p>Nice to meet youuu!!</p>
   </div>
+</section>
 
-  <button class="back-btn" onclick="goBack()">⬅ Back</button>
-</div>
-
-<script>
-  function showBio() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("card").style.display = "block";
-    document.getElementById("bio").style.display = "block";
-    document.getElementById("hello").style.display = "none";
-  }
-
-  function showHello() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("card").style.display = "block";
-    document.getElementById("bio").style.display = "none";
-    document.getElementById("hello").style.display = "block";
-  }
-
-  function goBack() {
-    document.getElementById("home").style.display = "flex";
-    document.getElementById("card").style.display = "none";
-  }
-</script>
+<footer>
+  Made with 💚 by Fiolyn Angelie
+</footer>
 
 </body>
 </html>
