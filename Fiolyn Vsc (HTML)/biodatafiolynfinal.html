@@ -39,38 +39,61 @@ body {
   z-index: -1;
 }
 
-/* Navbar */
-nav {
+/* Menu button */
+.menu-btn{
   position: fixed;
-  width: 100%;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Sidebar */
+.sidebar{
+  position: fixed;
   top: 0;
-  padding: 20px;
+  left: -250px; /* sembunyi */
+  width: 250px;
+  height: 100%;
+  background: rgba(88,175,80,0.95);
+  backdrop-filter: blur(10px);
+  padding-top: 80px;
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  backdrop-filter: blur(8px);
-  background: rgba(88, 175, 80, 0.6);
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.4s;
+  z-index: 99;
 }
 
-nav a {
+/* Link menu */
+.sidebar a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: rgb(0, 0, 0);
   text-decoration: none;
-  color: #cef26d;
   font-size: 22px;
+  padding: 15px 25px;
   transition: 0.3s;
+  border-left:4px solid transparent;
 }
 
-nav a:hover {
-  transform: scale(1.1);
+/* Hover effect */
+.sidebar a:hover{
+  background: rgba(243, 239, 239, 0.15);
+  padding-left: 35px;
+  border-left:4px solid #cef26d;
+  transform:translateX(8px);
 }
 
-/* Section */
-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px;
-  text-align: center;
+.close-btn{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:22px;
+  cursor:pointer;
 }
 
 /* Hero */
@@ -94,6 +117,13 @@ section {
   width: 90%;
   max-width: 650px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin:auto;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.35);
 }
 
 img {
@@ -130,20 +160,17 @@ footer {
   overflow: hidden;
 }
 
-.hero-text {
+.hero-title {
+  color: rgb(255, 255, 255);
   flex: 1;
-  color: white
 }
 
 .hero-text h1 {
   font-family: "Pacifico", cursive;
-  font-size: 60px;
-  color: #e04949;
-}
-
-.hero-text p {
-  font-size: 25px;
+  font-size: 70px;
+  color: rgb(255, 255, 255);
   margin-top: 20px;
+  flex: 1;
 }
 
 .hero-image {
@@ -159,7 +186,7 @@ footer {
   object-fit: cover;
   border: none;
   transform: scaleX(-1);
-
+  animation: float 4s ease-in-out infinite;
 }
 
 .wave-divider {
@@ -186,6 +213,10 @@ section {
 
 #schedule {
   background: linear-gradient(to bottom, #6fcf97, #58af50);
+}
+
+#kpop{
+  background: linear-gradient(to bottom, #58af50, #6fcf97);
 }
 
 .cute-table {
@@ -216,13 +247,53 @@ section {
 }
 
 section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 120px 20px;
+  text-align: center;
+  scroll-margin-top: 120px;
   position: relative;
 }
+
+.kpop-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.kpop-item{
+  text-align:center;
+}
+
+.kpop-item img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid #cef26d;
+  transition:0.3s;
+}
+
+.kpop-item img:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #cef26d;
+}
+
+.kpop-item p{
+  margin-top:10px;
+  font-size:30px;
+}
+
 @keyframes float {
   0% { transform: scaleX(-1) translateY(0px); }
   50% { transform: scaleX(-1) translateY(-15px); }
   100% { transform: scaleX(-1) translateY(0px); }
 }
+
 </style>
 </head>
 
@@ -233,17 +304,26 @@ section {
 </video>
 <div class="overlay"></div>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About Me</a>
-  <a href="#hello">Hello</a>
-  <a href="#schedule">Schedule</a>
-</nav>
+<div class="menu-btn" onclick="toggleSidebar()">
+☰
+</div>
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleSidebar()">✖</div>
+
+  <a href="#home">🏠 Home</a>
+  <a href="#about">🌻 About Me</a>
+  <a href="#hello">💌 Hello</a>
+  <a href="#schedule">📅 Schedule</a>
+  <a href="#kpop">🎤 K-POP Groups</a>
+
+</div>
+
+
 
 <section id="home" class="hero">
     <div class="hero-text">
-      <h1>✨ Lets Get To Know Each Other ✨</h1>
-      <p>Welcome to my personal website 💚</p>
+      <h1>✨Let's Get To Know Each Other✨</h1>
+      <p>Welcome to my personal website💚</p>
     </div>
 
     <div class="hero-image">
@@ -258,9 +338,20 @@ section {
 </div>
 </section>
 
+<section id="about">
+  <div class="card">
+    <img src="profile.jpeg" alt="profile">
+    <h2>🌻Fiolyn Angelie🌻</h2>
+    <p>🎀 Nickname: Fiolyn or Lyn</p>
+    <p>🧏🏻‍♀️ Student ID: 2531122</p>
+    <p>💭 Major: Computer science</p>
+    <p>🎮 Hobbies: Designing, drawing, fashion, playing games</p>
+    <p>🌼 Fun Fact: I have a twin ✌🏻</p>
+  </div>
+</section>
 <section id="schedule">
   <div class="card">
-    <h2>🌿 My Weekly Schedule 🌿</h2>
+    <h2>🌿My Weekly Schedule🌿</h2>
 
     <table class="cute-table">
       <tr>
@@ -323,15 +414,33 @@ section {
   </div>
 </section>
 
-<section id="about">
+<section id="kpop">
   <div class="card">
-    <img src="profile.jpeg" alt="profile">
-    <h2>🌻Fiolyn Angelie🌻</h2>
-    <p>🎀 Nickname: Fiolyn or Lyn</p>
-    <p>🧏🏻‍♀️ Student ID: 2531122</p>
-    <p>💭 Major: Computer Science</p>
-    <p>🎮 Hobbies: Designing, Drawing, Painting, Playing Games</p>
-    <p>🌼 Fun Fact: I have a twin ✌🏻</p>
+    <h2>🎤Favorite K-POP Groups🎤</h2>
+
+    <div class="kpop-container">
+
+      <div class="kpop-item">
+        <img src="TXT.jpg" alt="TXT">
+        <p>Tomorrow x Together</p>
+      </div>
+
+      <div class="kpop-item">
+        <img src="IVE.jpg" alt="IVE">
+        <p>IVE</p>
+      </div>
+
+      <div class="kpop-item">
+        <img src="Kep1er.jpg" alt="Kep1er">
+        <p>Kep1er</p>
+      </div>
+      
+      <div class="kpop-item">
+        <img src="Stray Kids.jpg" alt="Stray Kids">
+        <p>Stray Kids</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -345,9 +454,21 @@ section {
   </div>
 </section>
 
+
 <footer>
   Made with 💚 by Fiolyn Angelie
-</footer>
 
+</footer>
+<script>
+function toggleSidebar(){
+  const sidebar = document.getElementById("sidebar");
+
+  if(sidebar.style.left === "0px"){
+    sidebar.style.left = "-250px";
+  }else{
+    sidebar.style.left = "0px";
+  }
+}
+</script>
 </body>
 </html>
